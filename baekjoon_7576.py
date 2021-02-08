@@ -51,4 +51,3 @@ for i in range(n):
 result = bfs(m, n)
 
 print(result)
-
