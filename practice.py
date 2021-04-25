@@ -92,3 +92,100 @@
 
 # print(''.join(data_list))
 
+# def main():
+#     left = 0
+#     right = 0
+#     x = input()
+#     for i in x:
+#         print(i)
+#         if i == "(":
+#             left += 1
+#         if i == ")":
+#             right += 1
+#     if left == right:
+#         print("YES")
+#     else:
+#         print("NO")
+
+# if __name__=="__main__":
+#     main()
+
+# sw마에스트로 1번
+
+def main():
+    result = []
+    skill = list(input().split(" "))
+    num = int(input())
+    link = []
+    for i in range(num):
+        link.append(list(input().split(" ")))
+
+
+    for i in link:
+        if i[0] == "h":
+            if i[1] == "f":
+                result.append(i)
+            else:
+                if ['g', 'r'] in link:
+                    result.append(["h", "g", "r"])
+                if ['g', 'w'] in link:
+                    result.append(["h", "g", "w"])
+
+    for i in result:
+        for j in i:
+            print(j,end=" ")
+        print()
+
+if __name__=="__main__":
+    main()
+
+# sw마에스트로 2번
+
+def main():
+    p, n, h = map(int, input().split(" "))
+    res = []
+    for i in range(n):
+        res.append(list(map(int, input().split(" "))))
+        
+    result = []
+    
+    for i in range(len(res)):
+        if res[i][1] > h:
+            res.remove(res[i])
+        
+        if res[i][0] == i:
+            cnt += res[i][1]
+    
+    print(x)
+
+if __name__=="__main__":
+    main()
+
+# sw마에스트로 4번
+
+global answer
+answer = []
+
+def myfunction(graph, v, visited, n):
+    if visited[v]:
+        answer.append(n)
+        return
+    else:
+        visited[v] = True
+        i = v + graph[v]
+        myfunction(graph, i, visited, n + 1)
+        return
+
+def main():
+    n = int(input())
+    
+    data = list(map(int, input().split(" ")))
+    
+    for i in range(3):
+        visited = [False] * n
+        myfunction(data, i, visited, 1)
+    
+    print(max(answer))
+
+if __name__=="__main__":
+    main()
